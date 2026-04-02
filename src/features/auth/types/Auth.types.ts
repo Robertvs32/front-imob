@@ -1,0 +1,22 @@
+/* INTERFACE DO OBJETO USUARIO - USADO PARA DEFINIR O ESQUELETO DO OBJUSER QUE IRA GUARDAR
+OS DADOS DO USUARIO NO CONTEXT*/
+export interface User {
+    id: number,
+    id_role: number,
+    id_empresa: number,
+    nome: string 
+}
+
+/* INTERFACE DO AUTH CONTEXT, QUE SERA DISPONIBILIZADO PARA TODOS OS COMPONENTES */
+export interface ContextData {
+    loading: boolean,
+    objUser: User | null,
+    login: (email: string, senha:string) => Promise<ReturnLogin>,
+    logout: () => void;
+}
+
+//INTERFACE DO RETORNO DO LOGIN
+export interface ReturnLogin {
+    objUser: User,
+    token: string
+}
