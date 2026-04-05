@@ -2,3 +2,21 @@
   --cor-primaria: "#4287f5";
   --cor-secundaria: "#1d2533".
 }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  background-color: red;
+  height: 100vh;
+  width: 100%;
+}
+body{
+  height: 100%;
+  width: 100%;
+}
+#root{
+  height: 100%;
+  width: 100%;
+}

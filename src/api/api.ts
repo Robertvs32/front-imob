@@ -1,20 +1,29 @@
-import axios from "axios";
-import { type InternalAxiosRequestConfig } from "axios";
+import axios, { type AxiosInstance} from "axios";
 
 const URL = ''
 
-export const api = axios.create({
+export const api: AxiosInstance = axios.create({
     baseURL: URL,
     withCredentials: true,
     timeout: 5000
 })
 
+let buscaToken = (): null | string => { return null }
+export const injetaBuscaToken = (fun: () => null | string ) => {buscaToken = fun}
+
 api.interceptors.request.use(
-    (config: InternalAxiosRequestConfig) => {
-        if(config.headers.Authorization && config.headers.Authorization !== 'Bearer null'){
-            return config;
+    (config) => {
+        const token = buscaToken();
+
+        if(token){
+            config.headers.set('Authorization', `Bearer ${token}`);
         }
 
         return config;
+        
+    },
+    error => {
+        return Promise.reject(error);
     }
 )
+

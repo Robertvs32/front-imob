@@ -1,5 +1,8 @@
-/* INTERFACE DO OBJETO USUARIO - USADO PARA DEFINIR O ESQUELETO DO OBJUSER QUE IRA GUARDAR
-OS DADOS DO USUARIO NO CONTEXT*/
+// INTERFACE DO OBJETO USUARIO - USADO PARA DEFINIR O ESQUELETO DO OBJUSER QUE IRA GUARDAR
+
+import type { SyntheticEvent } from "react";
+
+//OS DADOS DO USUARIO NO CONTEXT
 export interface User {
     id: number,
     id_role: number,
@@ -11,7 +14,7 @@ export interface User {
 export interface ContextData {
     loading: boolean,
     objUser: User | null,
-    login: (email: string, senha:string) => Promise<ReturnLogin>,
+    login: (email: string, senha:string) => Promise<void>,
     logout: () => void;
 }
 
@@ -19,4 +22,12 @@ export interface ContextData {
 export interface ReturnLogin {
     objUser: User,
     token: string
+}
+
+export interface objLogin {
+    email: string,
+    setEmail: React.Dispatch<React.SetStateAction<string>>
+    senha: string,
+    setSenha: React.Dispatch<React.SetStateAction<string>>
+    handleLogin: (e: SyntheticEvent) => void
 }
