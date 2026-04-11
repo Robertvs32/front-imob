@@ -4,13 +4,13 @@ import type { SyntheticEvent } from "react";
 
 //OS DADOS DO USUARIO NO CONTEXT
 export interface User {
-    id: number,
-    id_role: number,
+    id_usuario: number,
     id_empresa: number,
+    id_role: number,
     nome: string 
 }
 
-/* INTERFACE DO AUTH CONTEXT, QUE SERA DISPONIBILIZADO PARA TODOS OS COMPONENTES */
+/* INTERFACE DO AUTH CONTEXT, QUE SERA   DISPONIBILIZADO PARA TODOS OS COMPONENTES */
 export interface ContextData {
     loading: boolean,
     objUser: User | null,
