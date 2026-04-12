@@ -11,7 +11,18 @@ export const AuthServices = {
             return dadosUser;
         }
         catch(error: unknown){
-            throw new Error("Erro inesperado")
+            throw error
+        }
+    },
+
+    refreshToken: async (): Promise<ReturnLogin>  => {
+        try{
+            const response = await api.get<ReturnLogin>('/refreshtoken');
+            const dadosUser = response.data;
+
+            return dadosUser;
+        }catch(error: unknown){
+            throw new Error("Erro inesperado");
         }
     }
     

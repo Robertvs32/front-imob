@@ -15,8 +15,8 @@ export default function Login(){
 
         try{
             await login(email, senha);
-        }catch(error: unknown){
-            alert("Erro ao tentar fazer login");
+        }catch(error: any){
+            alert(error.response.data.mensagem);
         }
     }
 

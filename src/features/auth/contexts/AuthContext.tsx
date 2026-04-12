@@ -27,9 +27,8 @@
                 setObjUser(response.objUser);
                 setToken(response.token);
             }catch(error: any){
-                console.log(error.message)
-            }
-            finally{
+                throw error
+            }finally{
                 setLoading(false);
             }
         }
@@ -55,6 +54,7 @@
         //FUNCAO DE LOGOUT -------------------------------------------------------------------------------------
         const logout = async (): Promise<void> => {
             try{
+                //FAZER REQUISICAO PRA LIMPAR O COOKIE ################################
                 setObjUser(null);
                 setToken(null);
             }catch(error: any){
@@ -63,31 +63,42 @@
         }
         // ----------------------------------------------------------------------------------------------------
 
-        // INJETAR FUNCAO DE RECUPERAR TOKEN DENTRO DA INSTANCIA DO AXIOS -------------------------------------
+        // FUNCAO BUSCA TOKEN QUE SERA PASSADA PARA A INSTANCIA DO AXIOS --------------------------------------
         const buscaToken = (): string | null => {
             return token;
         }
-
-        injetaBuscaToken(buscaToken);
         //-----------------------------------------------------------------------------------------------------
 
-        //INJETA FUNCAO DE REFRESH TOKEN DENTRO DA INSTANCIA DO AXIOS -----------------------------------------
-        injetaRefreshToken(refreshToken)
-        //-----------------------------------------------------------------------------------------------------
-
-        //TODA VEZ QUE O TOKEN MUDAR, ATUALIZA A FUNCAO QUE PEGA O TOKEN, E A FUNCAO DE PRA PEGAR O NOVO E NAO O ANTIGO -----
+        //TODA VEZ QUE O TOKEN MUDAR, ATUALIZA A FUNCAO QUE PEGA O TOKEN, E A FUNCAO --------------------------
+        //DE REFRESH TOKEN, PRA NAO TENTAR REFERENCIAR UM VALOR ANTIGO
         useEffect(() => {
-            injetaBuscaToken((): string | null => {
-                return token
-            })
-
-            injetaRefreshToken(refreshToken)
+            injetaBuscaToken(buscaToken);
+            injetaRefreshToken(refreshToken);
         }, [token])
         // ----------------------------------------------------------------------------------------------------
 
+        //BUSCA OS DADOS PELO REFRESH TOKEN TODA VEZ QUE CARREGA A APLICAÇÃO ----------------------------------
+        useEffect(() => {
+            //cria uma funcao async pq o callback do useEffect nao pode
+            const buscaRefresh = async () => {
+                try{
+                    setLoading(true);
+                    await refreshToken();
+                }catch(error){
+                    console.log(error);
+                }finally{
+                    setLoading(false);
+                }
+            }
+            buscaRefresh();
+        }, [])
+        // ----------------------------------------------------------------------------------------------------
+
+        //RETORNA O PROVIDER PRA FORNECER O CONTEXTO PROS COMPONENTES FILHOS ----------------------------------
         return(
             <AuthContext.Provider value={{loading, objUser, login, logout}}>
                 {children}
             </AuthContext.Provider>
         )
+        // ----------------------------------------------------------------------------------------------------
     }
