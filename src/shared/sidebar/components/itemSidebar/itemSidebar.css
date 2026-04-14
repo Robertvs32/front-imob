@@ -1,0 +1,34 @@
+.itemSidebar{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid;
+    height: 45px;
+    margin: 7px 20px 0px 20px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    cursor: pointer;
+    box-shadow: 0 1px 1px grey;
+    overflow: hidden;
+    flex-shrink: 0;
+    width: auto;
+}
+.iconItemSidebar{
+    width: 20px;
+    height: 20px;
+}
+.titleItemSidebar{
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 15px;
+}
+.itemSidebarOpen{
+    min-width: 200px;
+}
+
+.itemSidebarClosed{
+    align-items: center;
+    justify-content: center;
+    padding-left: 0;
+    min-width: 40px;
+}

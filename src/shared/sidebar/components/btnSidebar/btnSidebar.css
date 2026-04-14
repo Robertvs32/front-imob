@@ -1,0 +1,20 @@
+#btnSidebar{
+    color: black;
+    background-color: rgba(61, 190, 255, 0.13);
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    height: 100%;
+    width: 16px;
+    position: absolute;
+    z-index: 100;
+}
+#iconBtnSidebar{
+    width: 13px;
+}   
+
+@media(max-width: 1000px){
+    #btnSidebar{
+        position: absolute;
+    }
+}

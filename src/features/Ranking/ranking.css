@@ -1,0 +1,12 @@
+.rankingContainer{
+    background-color: blue;
+    flex: 1;
+    padding: 40px;
+    color: white;
+    overflow-y: auto;
+}
+.teste{
+    height: 200px;
+    background-color: red;
+    margin-top: 15px;
+}
