@@ -9,7 +9,7 @@
     flex-direction: column;
     padding-bottom: 20px;
     transition: max-width 1s ease, padding 1s ease;
-    padding-left: 20px;
+    /* padding-left: 20px; */
 }
 
 .sidebarOpen{
@@ -25,7 +25,7 @@
     .sidebarContainer{
         position: absolute;
         padding: 0;
-        padding-left: 15px;
+        /* padding-left: 15px; */
     }
     .sidebarOpen{
         max-width: 100%;

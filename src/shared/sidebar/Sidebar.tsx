@@ -1,6 +1,6 @@
 import '@/shared/sidebar/sidebar.css'
 import HeaderSidebar from '@/shared/sidebar/components/headerSidebar/headerSidebar';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import ItemSidebar from '@/shared/sidebar/components/itemSidebar/ItemSidebar'
 import iconRanking from './icons/ranking.png';
 import iconVenda from './icons/venda.png'
@@ -8,20 +8,22 @@ import iconLocacao from './icons/locacao.png'
 import iconPropostas from './icons/propostas.png'
 import { useEffect } from 'react';
 import InfosUserSidebar from '@/shared/sidebar/components/infosUserSidebar/InfosUserSidebar';
+import { AuthContext } from '@/features/auth/contexts/AuthContext';
+import type { ContextData } from '@/features/auth/types/Auth.types';
 
 export default function Sidebar({statusSidebar, setStatusSidebar}: {statusSidebar: boolean, setStatusSidebar: React.Dispatch<React.SetStateAction<boolean>>}){
 
-    // STATES ---------------------------------------------------------------------------------------
-    const [itemSelected, setItemSelected] = useState('');
-    // ----------------------------------------------------------------------------------------------
+    const { objUser } = useContext(AuthContext) as ContextData
 
-    // EFFECT PRA SETAR O RANKING ??? ---------------------------------------------------------------
+    //STATES
+    const [itemSelected, setItemSelected] = useState('');
+
+    //EFFECT PRA SETAR O RANKING
     useEffect(() => {
         setItemSelected('Ranking');
     }, [])
-    // ----------------------------------------------------------------------------------------------
 
-    // SIDEBAR --------------------------------------------------------------------------------------
+    //SIDEBAR
     return(
         <>
             <div 
@@ -34,6 +36,8 @@ export default function Sidebar({statusSidebar, setStatusSidebar}: {statusSideba
 
                 <InfosUserSidebar
                     statusSidebar={statusSidebar}
+                    nome={objUser?.nome as string}
+                    id_role={objUser?.id_role as number}
                 />
 
                 <ItemSidebar
@@ -68,6 +72,20 @@ export default function Sidebar({statusSidebar, setStatusSidebar}: {statusSideba
                     path="/venda"
                     setSidebar={setStatusSidebar}
                 />
+
+                {(objUser?.id_role == 1 || objUser?.id_role == 2) && (
+                    <ItemSidebar
+                        statusSidebar={statusSidebar}
+                        icon={iconLocacao}
+                        alt="icone ranking"
+                        title="Cadastrar usuários"
+                        selected={itemSelected}
+                        setter={setItemSelected}
+                        path="/cadastro"
+                        setSidebar={setStatusSidebar}
+                    />
+                )}
+                
 
                 <ItemSidebar
                     statusSidebar={statusSidebar}
