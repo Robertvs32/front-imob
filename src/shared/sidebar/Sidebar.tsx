@@ -50,7 +50,7 @@ export default function Sidebar({statusSidebar, setStatusSidebar}: {statusSideba
                     statusSidebar={statusSidebar}
                     icon={iconVenda}
                     alt="icone ranking"
-                    title="Venda"
+                    title="Propostas"
                     selected={itemSelected}
                     setter={setItemSelected}
                     path="/equipes"
@@ -61,7 +61,7 @@ export default function Sidebar({statusSidebar, setStatusSidebar}: {statusSideba
                     statusSidebar={statusSidebar}
                     icon={iconLocacao}
                     alt="icone ranking"
-                    title="Equipe"
+                    title="Equipes"
                     selected={itemSelected}
                     setter={setItemSelected}
                     path="/venda"
@@ -85,7 +85,7 @@ export default function Sidebar({statusSidebar, setStatusSidebar}: {statusSideba
                     statusSidebar={statusSidebar}
                     icon={iconPropostas}
                     alt="icone ranking"
-                    title="Minhas Propostas"
+                    title="Imóveis"
                     selected={itemSelected}
                     setter={setItemSelected}
                     path="/propostas"
@@ -96,7 +96,18 @@ export default function Sidebar({statusSidebar, setStatusSidebar}: {statusSideba
                     statusSidebar={statusSidebar}
                     icon={iconPropostas}
                     alt="icone ranking"
-                    title="Clientes"
+                    title="Despesas"
+                    selected={itemSelected}
+                    setter={setItemSelected}
+                    path="/propostas"
+                    setSidebar={setStatusSidebar}
+                />
+
+                <ItemSidebar
+                    statusSidebar={statusSidebar}
+                    icon={iconPropostas}
+                    alt="icone ranking"
+                    title="Comissões"
                     selected={itemSelected}
                     setter={setItemSelected}
                     path="/propostas"

@@ -11,18 +11,23 @@
     margin-bottom: 24px;
 }
 
-.card_users{
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 0 1px 1px rgb(166, 166, 166);
+.card_user_container{
     width: 100%;
     display: flex;
-    flex-direction: row;
-    padding: 12px;
+    box-shadow: 0 0 1px 1px rgb(166, 166, 166);
+    background-color: rgb(255, 255, 255);
+    align-items: center;
     margin-top: 4px;
 }
 
+.card_users{
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    padding: 20px;
+}
+
 .card_users p{
-    padding: 12px 24px;
     color: black;
     font-size: 15px;
 }
@@ -57,8 +62,27 @@
     margin-left: auto;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    margin: 2px;
+    height: 40px;
+    margin-right: 8px
 }
 
 .btnInfosUser:hover{
     background-color: rgb(242, 240, 240);
+}
+
+@media(max-width: 570px){
+    .card_user_container{
+        flex-direction: column;
+        align-items: start;
+    }
+    .card_users{
+        grid-template-columns: 1fr;
+    }
+    .btnInfosUser{
+        margin: 12px
+    }
+    .containerBtnNovoUsuario{
+        flex-direction: column;
+    }
 }

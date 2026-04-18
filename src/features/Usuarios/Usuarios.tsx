@@ -1,9 +1,30 @@
 import '@/features/Usuarios/usuarios.css'
 import { useNavigate } from 'react-router'
+import useUsuarios from './hooks/useUsuarios';
+import { useState, useEffect } from 'react';
+import RolesServices from '../roles/roles.services';
+import RolesUtils from '../roles/roles.utils';
+import type { DadosRoles } from '../roles/roles.types';
 
 export default function Usuarios(){
 
     const navigate = useNavigate();
+    const { usuarios } = useUsuarios();
+
+    const [arrayRoles, setArrayRoles] = useState<DadosRoles[]>([])
+
+    //BUSCAR ROLES
+    useEffect(() => {
+        const busca = async () => {
+            try{
+                const listaRoles = await RolesServices.buscarRoles();
+                setArrayRoles(listaRoles);
+            }catch(error){
+                alert("Erro ao buscar roles!");
+            }
+        }
+        busca();
+    }, []);
 
     return(
         <div className="usuariosContainer">
@@ -20,15 +41,19 @@ export default function Usuarios(){
                 </button>
             </div>
 
-           {Array.from({length: 15}).map((item, index) => (
-                <div className="card_users">
-                    <p>Osvaldo Zuccaro</p>
-                    <p>osvaldo@zuccaro.com</p>
-                    <p>(11) 94443-2344  </p>
-                    <p>Diretor geral</p>
+           {usuarios.map((item, index) => (
+                <>
+                    <div className="card_user_container">
+                        <div className="card_users" key={index}>
+                            <p>{item.nome}</p>
+                            <p>{item.email}</p>
+                            <p>{item.telefone}</p>
+                            <p>{RolesUtils.buscarNomeRole(arrayRoles, item.id_role)}</p>
+                        </div>
 
-                    <button className="btnInfosUser">Ver mais</button>
-                </div>
+                        <button className="btnInfosUser">Ver mais</button>
+                    </div>
+                </>
            ))}
 
         </div>
