@@ -2,18 +2,17 @@
     background-color: rgb(245, 255, 254);
     height: 100%;
     border-right: 1px solid rgba(109, 109, 109, 0.199);
-    overflow-x: hidden;
     scrollbar-width: none;
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding-bottom: 20px;
     transition: max-width 1s ease, padding 1s ease;
-    /* padding-left: 20px; */
+    position: relative;
+    overflow-x: hidden;
 }
 
 .sidebarOpen{
-    max-width: 320px;
+    max-width: 280px;
 }
 
 /* SIDEBAR CLOSED GERAL */
@@ -25,7 +24,6 @@
     .sidebarContainer{
         position: absolute;
         padding: 0;
-        /* padding-left: 15px; */
     }
     .sidebarOpen{
         max-width: 100%;

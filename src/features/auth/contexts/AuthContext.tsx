@@ -5,21 +5,18 @@
     import { injetaBuscaToken, injetaRefreshToken } from "@/api/api";
     import { useEffect } from "react";
 
-    //CRIANDO O AUTH CONTEXT QUE ACEITA TANTO O TIPO CONTEXTDATA QUANTO NULL (QUE SERA O VALOR INICIAL) ------
+    //CRIANDO O AUTH CONTEXT QUE ACEITA TANTO O TIPO CONTEXTDATA QUANTO NULL (QUE SERA O VALOR INICIAL)
     export const AuthContext = createContext<ContextData | null>(null);
-    // -------------------------------------------------------------------------------------------------------
 
-    //CRIANDO O AUTH PROVIDER QUE IRA ENVOLVER OS COMPONENTES QUE IRAO CONSUMIR O AUTH CONTEXT ---------------
+    //CRIANDO O AUTH PROVIDER QUE IRA ENVOLVER OS COMPONENTES QUE IRAO CONSUMIR O AUTH CONTEXT
     export const AuthProvider = ({children}: {children: ReactNode}) => {
-    // -------------------------------------------------------------------------------------------------------
 
-        //STATES ----------------------------------------------------------------------------------------------
+        //STATES
         const [objUser, setObjUser] = useState<User | null>(null);
         const [token, setToken] = useState<string | null>(null);
         const [loading, setLoading] = useState<boolean>(true);
-        //-----------------------------------------------------------------------------------------------------
 
-        //FUNCAO DE LOGIN -------------------------------------------------------------------------------------
+        //FUNCAO DE LOGIN
         const login = async (email: string, senha: string): Promise<void> => {
             try{
                 setLoading(true);
@@ -32,9 +29,8 @@
                 setLoading(false);
             }
         }
-        //-----------------------------------------------------------------------------------------------------
 
-        //FUNCAO PARA RETORNAR NOVO TOKEN PELO REFRESH TOKEN --------------------------------------------------
+        //FUNCAO PARA RETORNAR NOVO TOKEN PELO REFRESH TOKEN
         const refreshToken = async (): Promise<string | null> => {
             try{
                 const response = await AuthServices.refreshToken();
@@ -49,21 +45,19 @@
                 return null
             }
         }
-        // -----------------------------------------------------------------------------------------------------
 
-        //FUNCAO DE LOGOUT -------------------------------------------------------------------------------------
+        //FUNCAO DE LOGOUT
         const logout = async (): Promise<void> => {
             try{
-                //FAZER REQUISICAO PRA LIMPAR O COOKIE ################################
+                await AuthServices.limpaCookie();
                 setObjUser(null);
                 setToken(null);
             }catch(error: any){
                 console.log(error.message)
             }
         }
-        // ----------------------------------------------------------------------------------------------------
 
-        // FUNCAO BUSCA TOKEN QUE SERA PASSADA PARA A INSTANCIA DO AXIOS --------------------------------------
+        //FUNCAO BUSCA TOKEN QUE SERA PASSADA PARA A INSTANCIA DO AXIOS --------------------------------------
         const buscaToken = (): string | null => {
             return token;
         }

@@ -1,0 +1,27 @@
+.loaderContainer{
+    width: 100vw;
+    height: 100vh;
+     background: 
+        radial-gradient(1200px 600px at 20% 10%, rgba(47, 166, 218, 0.35), transparent 60%), 
+        radial-gradient(900px 500px at 80% 20%, rgba(59, 130, 246, 0.25), transparent 55%), 
+        linear-gradient(180deg, #f7fbff, #eef7ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loader{
+    height: 150px;
+    width: 150px;
+    background-color: rgba(0, 0, 255, 0);
+    border-radius: 100%;
+    border-top: 5px solid rgb(95, 133, 255);
+    border-bottom: 5px solid rgba(255, 255, 255, 0);
+    border-right: 5px solid rgba(255, 255, 255, 0);
+    border-left: 5px solid rgb(95, 133, 255);
+    animation: girar 1s infinite cubic-bezier(0.2, 0.3, 0.55, 0.3)
+}
+
+@keyframes girar{
+    0% { rotate: 0deg }
+    100% { rotate: 360deg }
+}

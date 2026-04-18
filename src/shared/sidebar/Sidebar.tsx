@@ -6,10 +6,10 @@ import iconRanking from './icons/ranking.png';
 import iconVenda from './icons/venda.png'
 import iconLocacao from './icons/locacao.png'
 import iconPropostas from './icons/propostas.png'
-import { useEffect } from 'react';
 import InfosUserSidebar from '@/shared/sidebar/components/infosUserSidebar/InfosUserSidebar';
 import { AuthContext } from '@/features/auth/contexts/AuthContext';
 import type { ContextData } from '@/features/auth/types/Auth.types';
+import LogoutBtn from '@/shared/sidebar/components/logoutBtn/LogoutBtn';
 
 export default function Sidebar({statusSidebar, setStatusSidebar}: {statusSidebar: boolean, setStatusSidebar: React.Dispatch<React.SetStateAction<boolean>>}){
 
@@ -17,11 +17,6 @@ export default function Sidebar({statusSidebar, setStatusSidebar}: {statusSideba
 
     //STATES
     const [itemSelected, setItemSelected] = useState('');
-
-    //EFFECT PRA SETAR O RANKING
-    useEffect(() => {
-        setItemSelected('Ranking');
-    }, [])
 
     //SIDEBAR
     return(
@@ -44,7 +39,7 @@ export default function Sidebar({statusSidebar, setStatusSidebar}: {statusSideba
                     statusSidebar={statusSidebar}
                     icon={iconRanking}
                     alt="icone ranking"
-                    title="Ranking  "
+                    title="Ranking"
                     selected={itemSelected}
                     setter={setItemSelected}
                     path="/"
@@ -78,14 +73,13 @@ export default function Sidebar({statusSidebar, setStatusSidebar}: {statusSideba
                         statusSidebar={statusSidebar}
                         icon={iconLocacao}
                         alt="icone ranking"
-                        title="Cadastrar usuários"
+                        title="Usuários"
                         selected={itemSelected}
                         setter={setItemSelected}
-                        path="/cadastro"
+                        path="/usuarios"
                         setSidebar={setStatusSidebar}
                     />
-                )}
-                
+                )} 
 
                 <ItemSidebar
                     statusSidebar={statusSidebar}
@@ -108,6 +102,8 @@ export default function Sidebar({statusSidebar, setStatusSidebar}: {statusSideba
                     path="/propostas"
                     setSidebar={setStatusSidebar}
                 />
+
+                <LogoutBtn/>
                     
             </div>
             

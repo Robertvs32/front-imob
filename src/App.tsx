@@ -6,6 +6,7 @@ import type { ContextData } from './features/auth/types/Auth.types';
 import Sidebar from '@/shared/sidebar/Sidebar'
 import { Outlet } from 'react-router';
 import BtnSidebar from '@/shared/sidebar/components/btnSidebar/BtnSidebar';
+import Loader from '@/shared/loader/Loader';
 
 function App() {
 
@@ -15,23 +16,23 @@ function App() {
   console.log(objUser)
 
   if(loading){
-    return <h1>Carregando!</h1>
+    return <Loader/>
   }
 
   if(objUser){
     return(
       <div id="appContainer">
 
-        {/* botao de abrir / fechar sidebar */}
-        <BtnSidebar
-            setter={setStatusSidebar}
-            statusSidebar={statusSidebar}
-        />
-
         {/* sidebar */}
         <Sidebar
           statusSidebar={statusSidebar}
           setStatusSidebar={setStatusSidebar}
+        />
+
+        {/* botao de abrir / fechar sidebar */}
+        <BtnSidebar
+            setter={setStatusSidebar}
+            statusSidebar={statusSidebar}
         />
 
         {/* container de funcionalidades - outlet */}

@@ -15,7 +15,7 @@ export interface ContextData {
     loading: boolean,
     objUser: User | null,
     login: (email: string, senha:string) => Promise<void>,
-    logout: () => void;
+    logout: () => Promise<void>;
 }
 
 //INTERFACE DO RETORNO DO LOGIN

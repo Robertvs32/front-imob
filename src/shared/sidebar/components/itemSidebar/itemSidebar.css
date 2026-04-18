@@ -2,7 +2,7 @@
     background-color: rgb(255, 255, 255);
     border: 1px solid;
     height: 45px;
-    margin: 7px 20px 0px 20px;
+    margin: 0px 20px 8px 20px;
     border-radius: 9px;
     display: flex;
     align-items: center;
@@ -12,6 +12,7 @@
     overflow: hidden;
     flex-shrink: 0;
     width: auto;
+
 }
 .iconItemSidebar{
     width: 20px;

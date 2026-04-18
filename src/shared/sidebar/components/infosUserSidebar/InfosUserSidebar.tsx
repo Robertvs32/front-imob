@@ -8,7 +8,7 @@ export default function InfosUserSidebar({statusSidebar, nome, id_role}: {
 }){
 
     //POR ENQUANTO MANUAL, DEPOIS PUXAR DO BANCO DE DADOS !!!!!
-    const nomeRoles: string[] = ["Diretor geral", "Adm"]
+    const nomeRoles: string[] = ["Diretor geral", "Adm", "Diretor comercial", "Corretor", "Financeiro", "Cliente", "Proprietário"]
 
     //FUNCAO PRA PEGAR O NOME DA ROLE
     const pegaNome = (id_role: number) => {

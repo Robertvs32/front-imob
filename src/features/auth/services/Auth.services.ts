@@ -24,6 +24,14 @@ export const AuthServices = {
         }catch(error: unknown){
             throw new Error("Erro inesperado");
         }
+    },
+
+    limpaCookie: async () => {
+        try{
+            await api.post('/logout');
+        }catch(error){
+            throw error
+        }
     }
     
 }

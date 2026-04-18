@@ -1,0 +1,17 @@
+.cadastroContainer{
+    background-color: rgb(245, 255, 254);
+    flex: 1;
+    padding: 40px;
+    color: rgb(86, 86, 86);
+    overflow-y: auto;
+}
+
+.teste{
+    height: 200px;
+    background-color: red;
+    margin-top: 15px;
+}
+
+.titleCadastro{
+    font-size: 26px;
+}

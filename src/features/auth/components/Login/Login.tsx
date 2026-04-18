@@ -59,7 +59,7 @@ export default function Login(){
                         />
                     </label>
 
-                    <div id="row">
+                    {/* <div id="row">
                         <button
                             id="linkBtn"
                             type="button"
@@ -67,7 +67,7 @@ export default function Login(){
                             >
                             Esqueci minha senha
                         </button>
-                    </div>
+                    </div> */}
 
                     <button 
                         id="primaryBtn"

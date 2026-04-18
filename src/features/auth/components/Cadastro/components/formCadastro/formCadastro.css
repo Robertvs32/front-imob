@@ -1,0 +1,70 @@
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+.dadosForm{
+    background-color: rgba(255, 0, 0, 0);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.cardInput{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    /* padding: 6px; */
+    border-radius: 4px;
+
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.157);
+}
+
+.cardInput label{
+    font-size: 14px;
+    color: rgb(64, 100, 96);
+    font-weight: bold;
+    margin-top: 4px;
+    margin-left: 4px;
+}
+
+.cardInput select{
+    border: none;
+    margin-top: 4px;
+    border-top: 2px solid rgb(198, 217, 226);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 8px;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    outline: none;
+    background-color:rgba(255, 255, 255, 0);
+}
+
+.btnEnviaCadastro{
+    background-color: rgb(2, 175, 255);
+    border: 1px solid rgb(255, 255, 255);
+    color: white;
+    font-weight: bold;
+    padding: 12px 22px;
+    margin-top: 16px;
+    cursor: pointer;
+    max-width: 280px;
+    border-radius: 6px;
+    box-shadow: 0 0 1px 1px rgb(95, 196, 242);
+    transition: background-color 0.3s ease
+}
+.btnEnviaCadastro:hover{
+    background-color: rgb(0, 101, 147);
+}
+
+@media(max-width: 450px){
+    .dadosForm{
+        grid-template-columns: 1fr;
+    }
+    .btnEnviaCadastro{
+        max-width: 100%;
+    }
+}
+
