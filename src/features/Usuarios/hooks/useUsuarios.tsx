@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import UsuariosServices from "../services/usuarios.services";
-import type { ItemListaUsuarios } from "../types/usuarios.types";
+import UsuariosServices from "@/features/Usuarios/services/usuarios.services";
+import type { ItemListaUsuarios } from "@/features/Usuarios/types/usuarios.types";
 
 export default function useUsuarios(){
 

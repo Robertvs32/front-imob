@@ -1,5 +1,5 @@
-import '@/features/auth/components/Cadastro/components/inputCadastro/inputCadastro.css'
-import { type InputProps } from '@/features/auth/components/Cadastro/types/cadastro.types'
+import '@/features/auth/components/Cadastro/inputCadastro/inputCadastro.css'
+import { type InputProps } from '@/features/auth/types/Auth.types'
 
 export default function({name, placeholder, value, label, onChange, required, type}: InputProps){
     return(

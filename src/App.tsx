@@ -1,5 +1,4 @@
 import './global.css'
-import Login from '@/features/auth/components/Login/Login'
 import { useContext, useState } from 'react'
 import { AuthContext } from '@/features/auth/contexts/AuthContext'
 import type { ContextData } from './features/auth/types/Auth.types';
@@ -7,6 +6,7 @@ import Sidebar from '@/shared/sidebar/Sidebar'
 import { Outlet } from 'react-router';
 import BtnSidebar from '@/shared/sidebar/components/btnSidebar/BtnSidebar';
 import Loader from '@/shared/loader/Loader';
+import LoginPage from './pages/Login/LoginPage';
 
 function App() {
 
@@ -42,7 +42,7 @@ function App() {
     )
   }
   
-  return <Login/>
+  return <LoginPage/>
 
 }
 

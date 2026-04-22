@@ -9,7 +9,7 @@ import iconPropostas from './icons/propostas.png'
 import InfosUserSidebar from '@/shared/sidebar/components/infosUserSidebar/InfosUserSidebar';
 import { AuthContext } from '@/features/auth/contexts/AuthContext';
 import type { ContextData } from '@/features/auth/types/Auth.types';
-import LogoutBtn from '@/shared/sidebar/components/logoutBtn/LogoutBtn';
+import LogoutBtn from '@/features/auth/components/LogoutBtn/LogoutBtn';
 
 export default function Sidebar({statusSidebar, setStatusSidebar}: {statusSidebar: boolean, setStatusSidebar: React.Dispatch<React.SetStateAction<boolean>>}){
 

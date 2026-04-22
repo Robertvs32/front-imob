@@ -1,12 +1,12 @@
-import '@/features/Usuarios/usuarios.css'
+import '@/features/Usuarios/components/DadosUsersMin/dadosUsersMin.css'
 import { useNavigate } from 'react-router'
-import useUsuarios from './hooks/useUsuarios';
+import useUsuarios from '@/features/Usuarios/hooks/useUsuarios';
 import { useState, useEffect } from 'react';
-import RolesServices from '../roles/roles.services';
-import RolesUtils from '../roles/roles.utils';
-import type { DadosRoles } from '../roles/roles.types';
+import RolesServices from '@/shared/roles/roles.services';
+import RolesUtils from '@/shared/roles/roles.utils';
+import type { DadosRoles } from '@/shared/roles/roles.types';
 
-export default function Usuarios(){
+export default function DadosUsersMin(){
 
     const navigate = useNavigate();
     const { usuarios } = useUsuarios();
@@ -25,6 +25,10 @@ export default function Usuarios(){
         }
         busca();
     }, []);
+
+    const navegarDadosUsuario = (id_usuario: number) => {
+        navigate(`/dadosusuario/${id_usuario}`)
+    }
 
     return(
         <div className="usuariosContainer">
@@ -51,7 +55,12 @@ export default function Usuarios(){
                             <p>{RolesUtils.buscarNomeRole(arrayRoles, item.id_role)}</p>
                         </div>
 
-                        <button className="btnInfosUser">Ver mais</button>
+                        <button 
+                            className="btnInfosUser"
+                            onClick={() => navegarDadosUsuario(item.id_usuario)}
+                        >
+                            Ver mais
+                        </button>
                     </div>
                 </>
            ))}

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { type dadosCadastro } from "@/features/auth/components/Cadastro/types/cadastro.types"
+import { type dadosCadastro } from "@/features/auth/types/Auth.types"
 import { api } from "@/api/api"
 
 export default function useCadastro(){

@@ -1,10 +1,10 @@
-import '@/features/auth/components/Cadastro/cadastro.css'
-import FormCadastro from '@/features/auth/components/Cadastro/components/formCadastro/FormCadastro'
-import useCadastro from '@/features/auth/components/Cadastro/hooks/useCadastro'
+import '@/pages/Cadastro/cadastro.css'
+import FormCadastro from '@/features/auth/components/Cadastro/formCadastro/FormCadastro'
+import useCadastro from '@/features/auth/hooks/useCadastro'
 
 export default function Cadastro(){
 
-    const { dados, setDados, cadastrar}= useCadastro();
+    const { dados, setDados, cadastrar} = useCadastro();
 
     return(
         <div className="cadastroContainer">

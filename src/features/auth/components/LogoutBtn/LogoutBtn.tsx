@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { AuthContext } from "@/features/auth/contexts/AuthContext"
 import type { ContextData } from "@/features/auth/types/Auth.types"
-import "@/shared/sidebar/components/logoutBtn/logoutBtn.css"
+import "@/features/auth/components/LogoutBtn/logoutBtn.css"
 
 export default function logoutBtn(){
 

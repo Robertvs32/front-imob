@@ -1,6 +1,6 @@
-import '@/features/auth/components/Cadastro/components/formCadastro/formCadastro.css'
-import type { cadastroForm } from '@/features/auth/components/Cadastro/types/cadastro.types'
-import InputCadastro from '@/features/auth/components/Cadastro/components/inputCadastro/InputCadastro';
+import '@/features/auth/components/Cadastro/formCadastro/formCadastro.css'
+import type { cadastroForm } from '@/features/auth/types/Auth.types'
+import InputCadastro from '@/features/auth/components/Cadastro/inputCadastro/InputCadastro';
 
 export default function FormCadastro({getter, setter, funcaoCadastrar}: cadastroForm  ){
 
@@ -69,7 +69,7 @@ export default function FormCadastro({getter, setter, funcaoCadastrar}: cadastro
                     label="Numero do endereço"
                     onChange={alteraValor}
                     required={true}
-                    type=""
+                    type="text"
                 />
 
                 <InputCadastro

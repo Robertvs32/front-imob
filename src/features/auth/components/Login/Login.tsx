@@ -16,7 +16,13 @@ export default function Login(){
         try{
             await login(email, senha);
         }catch(error: any){
-            alert(error.response.data.mensagem);
+            if(error?.response?.data?.mensagem){
+                return alert(error.response.data.mensagem);
+            }
+
+            console.log(`Aqui ${error}`)
+
+            alert("Erro ao fazer login!");
         }
     }
 

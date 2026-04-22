@@ -93,7 +93,7 @@ const executaFila = (error: any, token: string | null = null) => {
 
                     //verifica se o token está expirado e nao invalido
                     if(error.response?.status == 401 && 
-                    error.response?.data?.mensagem == 'Token expirado'  &&
+                    error.response?.data?.mensagem == 'Token expirado!'  &&
                     requisicao.try != true){
 
                         requisicao.try = true;
