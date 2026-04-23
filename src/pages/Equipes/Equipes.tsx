@@ -1,4 +1,4 @@
-import '@/features/Equipes/equipes.css'
+import '@/pages/Equipes/equipes.css'
 
 export default function Equipes(){
     return(

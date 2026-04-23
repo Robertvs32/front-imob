@@ -2,7 +2,8 @@
     import { createContext, useState, type ReactNode } from "react";
     import { type User, type ContextData, type ReturnLogin } from "@/features/auth/types/Auth.types";
     import { AuthServices } from "@/features/auth/services/Auth.services";
-    import { injetaBuscaToken, injetaRefreshToken } from "@/api/api";
+    import { injetaBuscaToken } from "@/api/interceptors/api.request";
+    import { injetaRefreshToken } from "@/api/interceptors/api.response";
     import { useEffect } from "react";
 
     //CRIANDO O AUTH CONTEXT QUE ACEITA TANTO O TIPO CONTEXTDATA QUANTO NULL (QUE SERA O VALOR INICIAL)

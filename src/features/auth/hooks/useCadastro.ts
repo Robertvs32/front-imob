@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { type dadosCadastro } from "@/features/auth/types/Auth.types"
-import { api } from "@/api/api"
+import api from "@/api/api"
 
 export default function useCadastro(){
 

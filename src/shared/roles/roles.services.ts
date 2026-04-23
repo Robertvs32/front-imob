@@ -1,8 +1,8 @@
-import { api } from "@/api/api";
+import api from "@/api/api";
 import type { DadosRoles } from "./roles.types";
 
 const RolesServices = {
-
+    
     buscarRoles: async () => {
         try{
             const response = await api.get('/listaroles');

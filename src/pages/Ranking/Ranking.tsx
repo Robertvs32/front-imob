@@ -1,4 +1,4 @@
-import '@/features/Ranking/ranking.css'
+import '@/pages/Ranking/ranking.css'
 
 export default function Ranking(){
     return(

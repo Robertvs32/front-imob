@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import App from "@/App";
-import Ranking from "@/features/Ranking/Ranking";
-import Equipes from "@/features/Equipes/Equipes";
+import Ranking from "@/pages/Ranking/Ranking";
+import Equipes from "@/pages/Equipes/Equipes";
 import Cadastro from "@/pages/Cadastro/Cadastro";
 import AdminGuard from "@/shared/AdminGuard/AdminGuard";
 import DadosUsersMin from "@/features/Usuarios/components/DadosUsersMin/DadosUsersMin";
